@@ -16,40 +16,13 @@ class wordType(object):
     def findPointValue(self, word):
 
         pointValue = 0    #initial point value
-           
-        # EDIT --- I'm in the middle of revising this portion because I just realized that this would be so much cleaner as a dictionary.
-        # Lists of letters by point value in Scrabble
-        onePtr = ['a', 'e', 'i', 'l', 'n', 'o', 'r', 's', 't', 'u']
-        twoPtr = ['d', 'g']
-        threePtr = ['b', 'c', 'm', 'p']
-        fourPtr = ['f', 'h', 'v', 'w', 'y']
-        fivePtr = ['k']
-        eightPtr = ['j', 'x']
-        tenPtr = ['q', 'z']
+
+        # Dictionary of letter-to-point values in Scrabble
+        pointValueDictionary = { 'a':1, 'e':1, 'i':1, 'l':1, 'n':1, 'o':1, 'r':1, 's':1, 't':1, 'u':1, 'd':2, 'g':2, 'b':3, 'c':3, 'm':3, 'p':3, 'f':4, 'h':4, 'v':4, 'w':4, 'y':4, 'k':5, 'j':8, 'x':8, 'q':10, 'z':10 }
 
         # Iterate over each character in a word, adding that letter's individual value to the total
         for char in word:
-            if char in onePtr:      #If worth one point, add 1 point to the total
-                pointValue += 1
-
-            if char in twoPtr:      #If worth two points, add 2 points to the total
-                pointValue += 2
-
-            if char in threePtr:    #If worth three points, add 3 point to the total
-                pointValue += 3
-
-            if char in fourPtr:     #If worth four points, add 4 points to the total
-                pointValue += 4
-
-            if char in fivePtr:     #If worth five points, add 5 points to the total
-                pointValue += 5
-
-            if char in eightPtr:    #If worth eight points, add 8 points to the total
-                pointValue += 8
-
-            if char in tenPtr:      #If worth ten points, add 10 to the total
-                pointValue += 10
-
+            pointValue += pointValueDictionary[char]
         return pointValue           #Return the total amount of points to the constructor
 
     # Method 'print' prints out the object's word and its point value on the same line
