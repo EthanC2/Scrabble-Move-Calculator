@@ -16,7 +16,8 @@ class wordType(object):
     def findPointValue(self, word):
 
         pointValue = 0    #initial point value
-
+           
+        # EDIT --- I'm in the middle of revising this portion because I just realized that this would be so much cleaner as a dictionary.
         # Lists of letters by point value in Scrabble
         onePtr = ['a', 'e', 'i', 'l', 'n', 'o', 'r', 's', 't', 'u']
         twoPtr = ['d', 'g']
