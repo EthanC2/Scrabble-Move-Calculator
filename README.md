@@ -10,4 +10,4 @@ scrabbleCalculator.py takes the wordlist (the list of wordType objects) and dete
 
 Currently, there is a problem with scrabbleCalculator.py's method of assessing playability, as it does not check whether or not you have enough of each letter to play the word, which would be to assume that you have an infinite amount of each tile. Though that would be useful in other contexts, it is detrimental here. attemptFix.py hopes to correct this issue by creating a modifiable copy of your hand and removing a letter from the copy each time you use said letter. This way, you do not use more letters than you have. In its current state, attemptedFix.py does not fix this error, as it does not print out anything at all. It seems that function playableWord() always returns false, even though there clearly are playable words.
 
-Thanks for looking over this. I appreciate it :)
+Thanks for looking over this - I appreciate it :)
