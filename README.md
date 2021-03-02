@@ -1,4 +1,6 @@
 # Scrabble-Move-Calculator
+Hmm.... this is a test...
+
 This Python project is designed to calculate every possible move in the game Scrabble given a hand of tiles. This project uses the North American-based standard Scrabble dictionary TWL06. 
 
 The file twl06.txt contains all 178,691 legal words from the North American Scrabble tournament. Each word is written entirely in lowercase and has its own line.
