@@ -22,11 +22,14 @@
 
 # Print format: [point value] [word]
 
+
+
 import getWords   # File 'getWords' contains the list of wordType objects
 import sys        # sys contains the module for command line arguments
 
 # Use list comprehention to create a list from each character in the provided hand (which is a string)
 letters = [char for char in sys.argv[1]]    
+
 
 # Determine if a given word is playable by comparing every letter in it 
 # to the given hand
@@ -36,11 +39,13 @@ def playableWord(word, letters):
             return False
     return True                   # If all the character are in the hand, return true
 
+
 def main():
     # Print all words that can be made with the given string
     for word in getWords.wordlist:        # For every word in the wordlist
         if playableWord(word, letters):   # Print the word to console if it is playable
             word.print()
+
 
 if __name__ == '__main__':
     main()

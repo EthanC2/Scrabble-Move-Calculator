@@ -37,7 +37,8 @@ class wordType(object):
 
 # Open file 'twl06' in read mode, which contains the full list of legal words in Scrabble for the North American tournaments
 # File format: every line contains only one word, which is written entirely in lowercase
-f = open("twl06.txt", "r")
+f = open("test.txt", "r")
+#f = open("twl06.txt", "r")
 
 # Make an empty list
 wordlist = list()
