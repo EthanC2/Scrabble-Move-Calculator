@@ -36,7 +36,11 @@ def playableWord(word, letters):
             return False
     return True                   # If all the character are in the hand, return true
 
-# Print all words that can be made with the given string
-for word in getWords.wordlist:        # For every word in the wordlist
-    if playableWord(word, letters):   # Print the word to console if it is playable
-        word.print()
+def main():
+    # Print all words that can be made with the given string
+    for word in getWords.wordlist:        # For every word in the wordlist
+        if playableWord(word, letters):   # Print the word to console if it is playable
+            word.print()
+
+if __name__ == '__main__':
+    main()
