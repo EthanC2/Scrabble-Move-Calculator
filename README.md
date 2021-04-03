@@ -26,4 +26,15 @@ Here is the process of the program, step by step:
  
  
  The evaluation of which words are playable is one of the more complex parts of the algorithm, so I would like to document my process here:
- 1. Declare two iterators, one to iterate over 
+ 
+ 1. Declare two iterators, one to iterate over the map of the class and the other to iterate over the map of the given hand (tileset)
+ 
+ 2. Return false for any word that has a larger map than that of the given hand. Though unintuitive, this makes the algorithm much more efficient as each key is a unique
+    character. Thus, if the potential word has more unique characters than there are unique characters in the hand, then there is some letter such that that letter exists
+    in the word and not in the hand. This shortcut increases the efficiency of the algorithm by avoiding many unnecessary calculations.
+ 
+ 3. Iterate over each character in the potential word. If there is any character in the potential word that is not in the tileset, then the word is not playable. 
+    If the character is in the tileset, but the amount of that character in the potential word is more than in the tileset, then the word is not playable; however,
+    if the character in the potential word is in the tileset and the amount of that tile is less than or equal to the amount in the tileset, then the word is playable.
+ 
+ 4. Print all playable words to console in the format 'point_value  word', followed by an endline.
