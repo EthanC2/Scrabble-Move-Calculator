@@ -1,10 +1,10 @@
 # Scrabble-Move-Calculator
 
-This Python project is designed to calculate every possible move in the game Scrabble given a hand of tiles. This project uses the North American-based standard Scrabble dictionary TWL06. 
+This C++ project is designed to calculate every possible move in the game Scrabble given a hand of tiles. This project uses the North American-based standard Scrabble dictionary TWL06. 
 
 The file twl06.txt contains all 178,691 legal words from the North American Scrabble tournament. Each word is written entirely in lowercase and has its own line.
 
-getWords.py takes each line (word) from twl06.txt and formats it, converting it to type 'wordType' before adding it to the list of words. The 'wordType' class holds a word and its point value in Scrabble, along with a constructor, a method to determine the point value, and a print function. The print function prints the object in the format of 
+getWords.h takes each line (word) from twl06.txt and formats it, converting it to type 'wordType' before adding it to the list of words. The 'wordType' class holds a word and its point value in Scrabble, along with a constructor, a method to determine the point value, and a print function. The print function prints the object in the format of 
 "[point value]  [word]" -- this is so the words can be sorted by point value with the Linux 'sort -n' command.
 
 scrabbleCalculator.py takes the wordlist (the list of wordType objects) and determines whether or not they are playable given a hand of tiles, which is provided as a command line argument. Playability is determined by whether or not you have all the letters necessary to play the word. If the word is playable, then it is output to console along with the point value in front of it using the wordType print() method.
