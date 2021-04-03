@@ -133,7 +133,7 @@ bool wordType::isPlayable(const wordType playerWordObj)
 
     //Compare the frequency of each character in the player's hand to the potentially playable word
     for(itrOne = reqChar.begin(), itrTwo = playerHandMap.begin(); itrOne != reqChar.end(); itrOne++, itrTwo++)
-    {//                        initialization              ^                test expression                   ^  update statement
+    {//                        initialization              ^      test expression        ^  update statement
         
         //If the key from the required characters is not in the player's hand, return false
         if(playerHandMap.find(itrOne->first) == playerHandMap.end())
