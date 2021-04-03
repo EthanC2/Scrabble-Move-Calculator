@@ -1,8 +1,7 @@
 # Scrabble-Move-Calculator
 
 This C++ project is designed to calculate every possible move in the game Scrabble given a hand of tiles. This project uses the North American-based standard Scrabble dictionary
-TWL06, which can be found at https://www.wordgamedictionary.com/twl06/download/twl06.txt. I used the Linux curl command along with commandline I/O re-direction to create the file 
-easily.
+TWL06, which can be found at https://www.wordgamedictionary.com/twl06/download/twl06.txt. I used the Linux curl command along with commandline I/O re-direction to create the file easily. If you have any questions regarding this project, please contact me at ecox@highpoint.edu.
 
 The file twl06.txt contains all 178,691 legal words from the North American Scrabble tournament. Each word is written entirely in lowercase and has its own line.
 
@@ -14,7 +13,8 @@ Execution Instructions:   ./a.out <tileset>
 
 Here is the process of the program, step by step:
 
-1.  Validate the arguments from the command line, giving a warning or indicator of fatal error if the amount of arguments are improper (0 == fatal, >1 == warning)
+1.  Validate the arguments from the command line, giving a warning or indicator of fatal error if the amount of arguments are improper 
+    (0 == fatal, >1 == warning)
 
 2.  Open the file 'twl06.txt' and load all the words in as wordType objects into a vector called 'wordCatalog'.
 
@@ -38,3 +38,7 @@ Here is the process of the program, step by step:
     if the character in the potential word is in the tileset and the amount of that tile is less than or equal to the amount in the tileset, then the word is playable.
  
  4. Print all playable words to console in the format 'point_value  word', followed by an endline.
+
+
+Best regards,
+Ethan Cox
