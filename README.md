@@ -1,14 +1,29 @@
 # Scrabble-Move-Calculator
 
-This C++ project is designed to calculate every possible move in the game Scrabble given a hand of tiles. This project uses the North American-based standard Scrabble dictionary TWL06. 
+This C++ project is designed to calculate every possible move in the game Scrabble given a hand of tiles. This project uses the North American-based standard Scrabble dictionary
+TWL06, which can be found at https://www.wordgamedictionary.com/twl06/download/twl06.txt. I used the Linux curl command along with commandline I/O re-direction to create the file 
+easily.
 
 The file twl06.txt contains all 178,691 legal words from the North American Scrabble tournament. Each word is written entirely in lowercase and has its own line.
 
-getWords.h takes each line (word) from twl06.txt and formats it, converting it to type 'wordType' before adding it to the list of words. The 'wordType' class holds a word and its point value in Scrabble, along with a constructor, a method to determine the point value, and a print function. The print function prints the object in the format of 
-"[point value]  [word]" -- this is so the words can be sorted by point value with the Linux 'sort -n' command.
+getWords.h contains both the declaration and implementation of a class 'wordType', which contains all the necessary information about a word in Scrabble, that being: \
+the word itself, the word's total point value, and <char, int> map of the frequency of each character in the word.
 
-scrabbleCalculator.py takes the wordlist (the list of wordType objects) and determines whether or not they are playable given a hand of tiles, which is provided as a command line argument. Playability is determined by whether or not you have all the letters necessary to play the word. If the word is playable, then it is output to console along with the point value in front of it using the wordType print() method.
+Compilation Instructions: g++ scrabbleMain.cpp
+Execution Instructions:   ./a.out <tileset>
 
-Currently, there is a problem with scrabbleCalculator.py's method of assessing playability, as it does not check whether or not you have enough of each letter to play the word, which would be to assume that you have an infinite amount of each tile. Though that would be useful in other contexts, it is detrimental here. attemptFix.py hopes to correct this issue by creating a modifiable copy of your hand and removing a letter from the copy each time you use said letter. This way, you do not use more letters than you have. In its current state, attemptedFix.py does not fix this error, as it does not print out anything at all. It seems that function playableWord() always returns false, even though there clearly are playable words.
+Here is the process of the program, step by step:
 
-Thanks for looking over this - I appreciate it :)
+1.  Validate the arguments from the command line, giving a warning or indicator of fatal error if the amount of arguments are improper (0 == fatal, >1 == warning)
+
+2.  Open the file 'twl06.txt' and load all the words in as wordType objects into a vector called 'wordCatalog'.
+
+3.  Transform the tileset given from the commandline into a wordType object.
+
+4.  Compare each word in the list of all words (wordCatalog vector) to the given tileset to determine which words are playable. If a word is playable, the word and its point
+    value will be printed to the console in the format 'value  word'.
+    
+ 
+ 
+ The evaluation of which words are playable is one of the more complex parts of the algorithm, so I would like to document my process here:
+ 1. Declare two iterators, one to iterate over 
