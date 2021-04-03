@@ -12,6 +12,9 @@ Program Summary: This program, which consists of three files: a main file, a hea
 
                  Best regards,
                  Ethan
+                 
+Compilation Instructions: g++ scrabbleMain.cpp
+Execution Instructions:   ./a.out <tileset>
 
 Future plans: In the future, I am planning on adding further input validation, wildcards, and more.
 
