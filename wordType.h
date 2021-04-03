@@ -132,7 +132,7 @@ bool wordType::isPlayable(const wordType playerWordObj)
         return false;                                         //is necessarily true that there is at least one item in the list that is not in the other
 
     //Compare the frequency of each character in the player's hand to the potentially playable word
-    for(itrOne = reqChar.begin(), itrTwo = playerHandMap.begin(); itrOne != reqChar.end(), itrTwo != playerHandMap.end(); itrOne++, itrTwo++)
+    for(itrOne = reqChar.begin(), itrTwo = playerHandMap.begin(); itrOne != reqChar.end(); itrOne++, itrTwo++)
     {//                        initialization              ^                test expression                   ^  update statement
         
         //If the key from the required characters is not in the player's hand, return false
