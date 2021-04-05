@@ -11,6 +11,8 @@ the word itself, the word's total point value, and <char, int> map of the freque
 Compilation Instructions: g++ scrabbleMain.cpp
 Execution Instructions:   ./a.out <tileset>
 
+
+
 Here is the process of the program, step by step:
 
 1.  Validate the arguments from the command line, giving a warning or indicator of fatal error if the amount of arguments are improper 
