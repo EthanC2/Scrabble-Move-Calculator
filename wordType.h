@@ -75,6 +75,7 @@ class wordType
         void print() const;                      //Prints '<value> <word>'
         void printMap();   //for debugging.
         bool isPlayable(const wordType);  //Compares the characters in the given hand to the wordType object
+        bool operator<(const wordType& other) const;
 };
 
 
@@ -128,12 +129,12 @@ bool wordType::isPlayable(const wordType playerWordObj)
     map<char, int> playerHandMap = playerWordObj.getMap();    //Cannot call methods on playerHand.getMap() directly as it results in a seg. fault.
 
     //If not equal, return false
-    if(reqChar.size() > playerHandMap.size())          //since no two keys can be the same, if the size of the lists are not equal, then it
-        return false;                                         //is necessarily true that there is at least one item in the list that is not in the other
+    if(reqChar.size() > playerHandMap.size())          //since no two keys can be the same, if the first map is greater, then it
+        return false;                                 //is necessarily true that there is at least one item in the map that is not in the other
 
     //Compare the frequency of each character in the player's hand to the potentially playable word
     for(itrOne = reqChar.begin(), itrTwo = playerHandMap.begin(); itrOne != reqChar.end(); itrOne++, itrTwo++)
-    {//                        initialization              ^      test expression        ^  update statement
+    {//                        initialization                   ^    test expression    ^  update statement
         
         //If the key from the required characters is not in the player's hand, return false
         if(playerHandMap.find(itrOne->first) == playerHandMap.end())
@@ -147,7 +148,6 @@ bool wordType::isPlayable(const wordType playerWordObj)
                 return false;
             }
         }
-        //cout << '\t' << itrOne->first << '\t' << itrOne->second << "\t\t" << itrTwo->first << '\t' << itrTwo->second << '\n';
     }
 
     //If all conditions are met, return true
@@ -166,6 +166,12 @@ void wordType::printMap()
     {
         cout << '\t' << itr->first << '\t' << itr->second << '\n';
     }
+}
+
+//operator <
+bool wordType::operator<(const wordType& other) const
+{
+    return value < other.value;
 }
 
 #endif
