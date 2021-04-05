@@ -25,9 +25,12 @@ Here is the process of the program, step by step:
 
 3.  Transform the tileset given from the commandline into a wordType object.
 
-4.  Compare each word in the list of all words (wordCatalog vector) to the given tileset to determine which words are playable. If a word is playable, the word and its point
-    value will be printed to the console in the format 'value  word'.
-    
+4.  Compare each word in the list of all words (wordCatalog vector) to the given tileset to determine which words are playable. If a word is playable, add it to the vector of 
+    playable words, 'playableWords'.
+
+5. Sort the vector of playableWords by point value (a class attriute -- requires the '<' operator to be overloaded)
+
+6. Iterate over the vector of playable words and output them in the format 'pointValue  word'
  
  
  The evaluation of which words are playable is one of the more complex parts of the algorithm, so I would like to document my process here:
