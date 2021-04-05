@@ -12,9 +12,6 @@ Program Summary: This program, which consists of three files: a main file, a hea
 
                  Best regards,
                  Ethan
-                 
-Compilation Instructions: g++ scrabbleMain.cpp
-Execution Instructions:   ./a.out <tileset>
 
 Future plans: In the future, I am planning on adding further input validation, wildcards, and more.
 
@@ -22,20 +19,20 @@ Future plans: In the future, I am planning on adding further input validation, w
 #include <iostream>                                    //for I/O operators
 #include <iomanip>                                    //for I/O Manipulation
 #include <fstream>                                   //for file operations (reading twl06.txt)
+
+#include <algorithm>
 #include <vector>                                   //for creating a vector of wordType objects
 #include <map>                                     //for creating a <char, int> mapping of the characters and point values in Scrabble
 #include <iterator>                               //in case the map needs to be iterated over
+
 #include "wordType.h"                                  //Custom class 'wordType' describes a class which contains a string (a word) and its point value in Scrabble as an integer
 using namespace std;
 
 //Function Prototypes
 void validateCmdArgs(const int);           //validates the amount of command line arguments - none is fatal, any more is tolerable
 void loadWords(vector<wordType>&);
-void displayPlayableWords(wordType);
-
-
-//Global array 'wordBank' holds all the words from the twl06 wordlist as a 'wordType' object
-vector<wordType> wordCatalog;
+void findPlayableWords(wordType&, vector<wordType>&, vector<wordType>&);
+void printPlayableWords(vector<wordType>&);
 
 //Global map that holds the point value in Scrabble for each possible letter
 map<char, int> pointDict = { {'a', 1}, {'e', 1}, {'i', 1}, {'l', 1}, {'n', 1}, {'o', 1}, {'r', 1}, {'s', 1}, {'t', 1}, {'u', 1},        //1 point letters
@@ -54,17 +51,27 @@ map<char, int> pointDict = { {'a', 1}, {'e', 1}, {'i', 1}, {'l', 1}, {'n', 1}, {
 //Driver code
 int main(int argc, char **argv)
 {
+    //Vector declarations
+    vector<wordType> wordCatalog;       //'wordCatalog' holds all the words from the twl06 wordlist as a 'wordType' object
+    vector<wordType> playableWords;    //'playableWords' holds all the words from wordCatalog that have been deemed playable by the .isPlayable() wordType method
+
     //Validate the given input + display warnings/errors
     validateCmdArgs(argc);
 
-    //Load all the wordType objects into the wordCatalog vector
+    //Load all the wordType objects from twl06.txt into the wordCatalog vector
     loadWords(wordCatalog);
 
     //Create a wordType object from the given hand at the commandline
     wordType yourWord(argv[1]);
 
-    //Iterate over the vector and output playable words and their point value to console
-    displayPlayableWords(yourWord);
+    //Iterate over the vector and add the playable words to vector 'playableWords' 
+    findPlayableWords(yourWord, wordCatalog, playableWords);
+
+    //Sort the words by ascending point value (showing the highest at the end, where visible)
+    sort(playableWords.begin(), playableWords.end());                  //requires overloaded '<' operator
+
+    //Print all playable words to console
+    printPlayableWords(playableWords);
     
     return 0;
 }
@@ -104,7 +111,7 @@ void loadWords(vector<wordType>& wordCatalog)
 }
 
 //displayPlayableWords()
-void displayPlayableWords(wordType hand)
+void findPlayableWords(wordType& hand, vector<wordType>& wordCatalog, vector<wordType>& playableWords)
 {
     //For every word in the vector 'wordCatalog'
     for(int index=0; index < wordCatalog.size(); index++)
@@ -112,8 +119,20 @@ void displayPlayableWords(wordType hand)
         //Test if the word is playable - if so, print it.
         if( (wordCatalog.at(index)).isPlayable(hand) )
         {
-            (wordCatalog.at(index)).print();
-            cout << endl;
+            playableWords.push_back( wordCatalog.at(index) );
         }
     }
+}
+
+
+//printPlayableWords
+void printPlayableWords(vector<wordType>& playableWords)
+{
+    for(int index=0; index < playableWords.size(); index++)
+    {   
+        //Test if the word is playable - if so, print it.
+        (playableWords.at(index)).print();
+        cout << endl;
+    }
+
 }
