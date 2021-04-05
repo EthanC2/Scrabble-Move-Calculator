@@ -12,7 +12,7 @@ the word itself, the word's total point value, and <char, int> map of the freque
 
 Compilation Instructions: g++ scrabbleMain.cpp
 
-Execution Instructions:   ./a.out <tileset>
+Execution Instructions:   ./a.out {tileset}
 
 
 
