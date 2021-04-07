@@ -3,7 +3,7 @@ Author: Ethan Cox
 
 Date: 4/2/2021
 
-This program is free software, and can be modified or re-distributed by anyone. It is publicly available at: https://github.com/EthanC2/Scrabble-Move-Calculator/
+This program is free software, and has been made available under the BSD 3-Clause License. It is publicly available at: https://github.com/EthanC2/Scrabble-Move-Calculator/
 
 Program Summary: This program, which consists of three files: a main file, a header file, and a text file, is designed to calculate all the possible plays that
                  you could make in Scrabble given a certain hand, which is provided as a commandline argument. This program is primarily designed as an exercise
