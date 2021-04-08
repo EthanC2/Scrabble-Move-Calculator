@@ -1,7 +1,7 @@
 # Scrabble-Move-Calculator
 
 This commandline C++ project is designed to calculate every possible move in the game Scrabble given a hand of tiles. Although a standard Scrabble hand is 7 tiles, there
-is nothing to prevent the user from giving the program more or less tiles so that it can also be used as a general-purpose word combination program.
+is nothing to prevent the user from giving the program more or less tiles so that it can also be used as a general-purpose letter combination program.
 
 This project uses the North American-based standard Scrabble dictionary TWL06, which can be found at https://www.wordgamedictionary.com/twl06/download/twl06.txt. 
 I used the Linux curl command along with commandline I/O re-direction to create the file easily. 
