@@ -57,5 +57,5 @@ Here is the process of the program, step by step:
  4. Print all playable words to console in the format 'pointValue   word', followed by an endline.
 
 
-Best regards, 
+Best regards, <br />
 Ethan Cox
