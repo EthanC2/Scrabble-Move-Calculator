@@ -6,7 +6,7 @@ is nothing to prevent the user from giving the program more or less tiles so tha
 finished as it is on-par with all online Scrabble calculators that I could find. Eventually, I will come back and simulate the game itself, calculating _all_ possible moves
 even in the context of the game, but, until then, this project is completed.
 
-## Scrabble Wordlist Used I
+## Scrabble Wordlist Used
 This project uses the North American-based standard Scrabble dictionary TWL06, which can be found at https://www.wordgamedictionary.com/twl06/download/twl06.txt. 
 I used the Linux curl command along with commandline I/O re-direction to create the file easily. 
 If you have any questions regarding this project, please contact me at ecox@highpoint.edu.
@@ -26,7 +26,7 @@ Execution Instructions:   ./a.out {tileset}
 ## Program Process
 Here is the process of the program, step by step:
 
-1.  Validate the arguments from the command line, giving a warning or indicator of fatal error if the amount of arguments are improper 
+1.  Validate the arguments from the command line, giving a warning or indicator of fatal error if the amount of arguments are improper <br />
     (0 == fatal, >1 == warning)
 
 2.  Open the file 'twl06.txt' and load all the words in as wordType objects into a vector called 'wordCatalog'.
