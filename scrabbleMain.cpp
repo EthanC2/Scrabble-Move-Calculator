@@ -24,8 +24,10 @@ Future plans: In the future, I am planning on adding further input validation, w
 #include <vector>                                   //for creating a vector of wordType objects
 #include <map>                                     //for creating a <char, int> mapping of the characters and point values in Scrabble
 #include <iterator>                               //in case the map needs to be iterated over
+#include <string>
+#include <string_view>
 
-#include "wordType.h"                                  //Custom class 'wordType' describes a class which contains a string (a word) and its point value in Scrabble as an integer
+#include "wordType.h"                                  //Custom class 'wordType' describes a class which contains a string_view (a word) and its point value in Scrabble as an integer
 using namespace std;
 
 //Function Prototypes
@@ -95,7 +97,7 @@ void loadWords(vector<wordType>& wordCatalog)
 {
     //Declare variables
     ifstream inFile;         //read-only file      
-    string line;            //string to store the contents
+    string line;            //string_view to store the contents
 
     //Open the input file
     inFile.open("twl06.txt");

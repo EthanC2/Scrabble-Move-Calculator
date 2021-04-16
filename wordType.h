@@ -19,6 +19,7 @@ Program Summary: This header file serves as both the declaration and implementat
 #include <string>        
 #include <map>            
 #include <iterator>
+#include <string_view>
 using namespace std;
 
 //map of all character's point values is in main -- including an identical it in ALL 179k word objects would take up too much memory and is pointless.
@@ -38,25 +39,25 @@ class wordType
          //========
 
         //findPointValue()
-        void findPointValue(string word)            //finds the point value of a word using the pointDict(ionary) listed in the main program (scrabbleMain.cpp)
+        void findPointValue(string_view word)            //finds the point value of a word using the pointDict(ionary) listed in the main program (scrabbleMain.cpp)
         {
-            for(int i = 0; i < word.length(); ++i)        //iterate over the string
+            for(int i = 0; i < word.length(); ++i)        //iterate over the string_view
             {
                 value += pointDict[word[i]];            //adding the point value of each character
             } 
         }
 
          //getCharFreq()
-        //This code was adopted from a GeeksForGeeks article by hrishikeshkonderu: https://www.geeksforgeeks.org/frequency-of-each-character-in-a-string-using-unordered_map-in-c
+        //This code was adopted from a GeeksForGeeks article by hrishikeshkonderu: https://www.geeksforgeeks.org/frequency-of-each-character-in-a-string_view-using-unordered_map-in-c
         void getCharFreq() 
         {
-            //For every character in the string 'word'
+            //For every character in the string_view 'word'
             for(int index=0; index < word.size(); index++)
             {   
                 //If the character is not in the map
                 if(reqChar.find(word[index]) == reqChar.end())
                 {
-                    reqChar.insert(pair<char, int>(word[index], 1));   //create an instance of that character in the map and set its value to 1
+                    reqChar.insert( pair<char, int>(word[index], 1) );   //create an instance of that character in the map and set its value to 1
                 }
                 else  //otherwise
                 {
@@ -68,8 +69,8 @@ class wordType
 
     public:
         wordType();                                   //Default constructor -- needed to create a vector of objects
-        wordType(string str);                        //Parameterized constructor -- for actually creating objects
-        string getWord() const;                     //Returns the word
+        wordType(string_view str);                        //Parameterized constructor -- for actually creating objects
+        string_view getWord() const;                     //Returns the word
         int getValue() const;                      //Returns the point value
         map<char, int> getMap() const;            //Return a the map to main
         void print() const;                      //Prints '<value> <word>'
@@ -87,7 +88,7 @@ wordType::wordType()
 }
 
 //Parameterized Constructor
-wordType::wordType(string str)
+wordType::wordType(string_view str)
 {
     word = str;                 //Record the word
     value = 0;                 //Declare a base point value
@@ -96,7 +97,7 @@ wordType::wordType(string str)
 }
 
 //getWord()
-string wordType::getWord() const
+string_view wordType::getWord() const
 {
     return word;
 }
@@ -156,7 +157,7 @@ bool wordType::isPlayable(const wordType playerWordObj)
 
 
 
-//printMap()
+//printMap() -- for debugging!
 void wordType::printMap() 
 {   
     map<char, int>::iterator itr;   //declare an iterator
@@ -168,7 +169,7 @@ void wordType::printMap()
     }
 }
 
-//operator <
+//operator <   -- allows for std::sort()
 bool wordType::operator<(const wordType& other) const
 {
     return value < other.value;
