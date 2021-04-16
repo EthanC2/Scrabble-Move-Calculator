@@ -39,7 +39,7 @@ class wordType
          //========
 
         //findPointValue()
-        void findPointValue(string_view word)            //finds the point value of a word using the pointDict(ionary) listed in the main program (scrabbleMain.cpp)
+        void findPointValue()            //finds the point value of a word using the pointDict(ionary) listed in the main program (scrabbleMain.cpp)
         {
             for(int i = 0; i < word.length(); ++i)        //iterate over the string_view
             {
@@ -92,7 +92,7 @@ wordType::wordType(string_view str)
 {
     word = str;                 //Record the word
     value = 0;                 //Declare a base point value
-    findPointValue(str);      //Determine the point value of the word
+    findPointValue();      //Determine the point value of the word
     getCharFreq();           //Determine the frequency of each character in the word
 }
 
