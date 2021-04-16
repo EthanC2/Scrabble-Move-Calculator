@@ -6,6 +6,9 @@ is nothing to prevent the user from giving the program more or less tiles so tha
 finished as it is on-par with all online Scrabble calculators that I could find. Eventually, I will come back and simulate the game itself, calculating _all_ possible moves
 even in the context of the game, but, until then, this project is completed.
 
+## Most Recent Update
+As of 4/16/2021 I have updated this project to use C++17 feature _string\_view_ to increase efficiency.
+
 ## Scrabble Wordlist Used
 This project uses the North American-based standard Scrabble dictionary TWL06, which can be found at https://www.wordgamedictionary.com/twl06/download/twl06.txt. 
 I used the Linux curl command along with commandline I/O re-direction to create the file easily. 
@@ -19,7 +22,7 @@ the word itself, the word's total point value, and <char, int> map of the freque
 
 
 ## Compilation and Execution Instructions
-Compilation Instructions: g++ scrabbleMain.cpp <br />
+Compilation Instructions: g++ -std=c++17 scrabbleMain.cpp <br />
 Execution Instructions:   ./a.out {tileset}
 
 
