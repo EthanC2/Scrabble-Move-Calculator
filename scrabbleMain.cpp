@@ -119,7 +119,7 @@ void findPlayableWords(wordType& hand, vector<wordType>& wordCatalog, vector<wor
     for(int index=0; index < wordCatalog.size(); index++)
     {   
         //Test if the word is playable - if so, print it.
-        if( (wordCatalog.at(index)).isPlayable(hand) )
+        if( (wordCatalog.at(index) ).isPlayable(hand) )
         {
             playableWords.push_back( wordCatalog.at(index) );
         }
