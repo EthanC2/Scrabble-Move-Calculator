@@ -132,7 +132,7 @@ void printPlayableWords(vector<wordType>& playableWords)
 {
     for(int index=0; index < playableWords.size(); index++)
     {   
-        //Test if the word is playable - if so, print it.
+        //Print all playable words
         (playableWords.at(index)).print();
         cout << endl;
     }
