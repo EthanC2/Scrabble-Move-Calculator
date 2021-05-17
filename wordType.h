@@ -142,12 +142,10 @@ bool wordType::isPlayable(const wordType playerWordObj)
         {
             return false;
         }
-        else
-        {   //If the amount of characters needed to spell the word is more than in the player's hand, return false
-            if(reqChar[itrOne->first] > playerHandMap[itrOne->first]) 
-            {
+        else if(reqChar[itrOne->first] > playerHandMap[itrOne->first]) 
+        {   
+                //If the amount of characters needed to spell the word is more than in the player's hand, return false
                 return false;
-            }
         }
     }
 
