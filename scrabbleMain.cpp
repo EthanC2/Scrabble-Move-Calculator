@@ -16,7 +16,7 @@ Program Summary: This program, which consists of three files: a main file, a hea
 Future plans: In the future, I am planning on adding further input validation, wildcards, and more.
 
 */
-#include <iostream>                                    //for I/O operators
+#include <iostream>                                    //for I/O operations
 #include <iomanip>                                    //for I/O Manipulation
 #include <fstream>                                   //for file operations (reading twl06.txt)
 
