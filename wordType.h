@@ -92,8 +92,8 @@ wordType::wordType(string_view str)
 {
     word = str;                 //Record the word
     value = 0;                 //Declare a base point value
-    findPointValue();      //Determine the point value of the word
-    getCharFreq();           //Determine the frequency of each character in the word
+    this->findPointValue();      //Determine the point value of the word
+    this->getCharFreq();           //Determine the frequency of each character in the word
 }
 
 //getWord()
