@@ -59,7 +59,3 @@ Here is the process of the program, step by step:
     if the character in the potential word is in the tileset and the amount of that tile is less than or equal to the amount in the tileset, then the word is playable.
  
  4. Print all playable words to console in the format '{pointValue}  {word}', followed by an endline.
-
-
-Best regards, <br />
-Ethan Cox
