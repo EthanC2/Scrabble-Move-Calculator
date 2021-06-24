@@ -12,7 +12,7 @@ As of 4/16/2021 I have updated this project to use C++17 feature _string\_view_ 
 ## Scrabble Wordlist Used
 This project uses the North American-based standard Scrabble dictionary TWL06, which can be found at https://www.wordgamedictionary.com/twl06/download/twl06.txt. 
 I used the Linux curl command along with commandline I/O re-direction to create the file easily. 
-If you have any questions regarding this project, please contact me at ecox[at]highpoint<dot>edu.
+If you have any questions regarding this project, please contact me at ecox[at]highpoint[dot]edu.
 
 The file twl06.txt contains all 178,691 legal words from the North American Scrabble tournament. Each word is written entirely in lowercase and has its own line.
 
